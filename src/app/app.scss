@@ -14,3 +14,69 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Textos - cores
+.text-primary {
+  color: color($colors, primary);
+}
+
+.text-secondary {
+  color: color($colors, secondary);
+}
+
+.text-green {
+  color: #68C91F;
+}
+
+.text-yellow {
+  color: #FDD835;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.rlt {
+  position: relative;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(86, 61, 124, 0.1);
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.max-width {
+  max-width: 100% !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// text size
+.text-2x {
+  font-size: 2em;
+}
+
+.text-1x {
+  font-size: 1em;
+}
+
+.text-sm {
+  font-size: 0.7em;
+}
+
+.bold {
+  font-weight: bold !important;
+}

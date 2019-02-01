@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, MenuController } from 'ionic-angular';
 
 import { AutenticacaoService, UsuarioService } from '../../providers';
-import { MainPage } from '../';
 
 @IonicPage()
 @Component({
@@ -45,7 +44,7 @@ export class LoginPage {
       .then(() => {
         // console.log('login: ', this.user._user);
         if (this.user._user !== undefined && this.user._user !== null) {
-          this.navCtrl.setRoot('ListMasterPage');
+          this.navCtrl.setRoot('ListaOSPage');
         }
       });
   }
@@ -55,7 +54,7 @@ export class LoginPage {
 
     const logar = this.authService.login(this.account);
     if (logar) {
-      this.navCtrl.setRoot('ListMasterPage');
+      this.navCtrl.setRoot('ListaOSPage');
       let toast = this.toastCtrl.create({
         message: this.loginSucessoString,
         duration: 3000,

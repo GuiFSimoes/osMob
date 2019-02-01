@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { ItemDetailPage } from './item-detail';
+import { DetalhesOSPage } from './detalhes-os';
 
 @NgModule({
-  declarations: [
-    ItemDetailPage,
-  ],
   imports: [
-    IonicPageModule.forChild(ItemDetailPage),
+    IonicPageModule.forChild(DetalhesOSPage),
     TranslateModule.forChild()
   ],
+  declarations: [
+    DetalhesOSPage
+  ],
   exports: [
-    ItemDetailPage
+    DetalhesOSPage
   ]
 })
-export class ItemDetailPageModule { }
+export class DetalhesOSPageModule {}

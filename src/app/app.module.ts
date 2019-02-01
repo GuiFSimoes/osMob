@@ -12,7 +12,15 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 // import { Settings, User, Api, FirebaseAutenticacao } from '../providers';
 import { MyApp } from './app.component';
-import { AuthInterceptorService, AutenticacaoService, OrdemServicoService, UsuarioService, ApiHttpService, Settings } from '../providers';
+import {
+  AuthInterceptorService,
+  AutenticacaoService,
+  OrdemServicoService,
+  UsuarioService,
+  ApiHttpService,
+  ClienteService,
+  Settings
+} from '../providers';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -20,12 +28,12 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+import { PopOverMenuOSComponent } from '../components/pop-over-menu-os';
+const menuComponent = [PopOverMenuOSComponent];
+
 export function provideSettings(storage: Storage) {
   /**
-   * The Settings provider takes a set of default settings for your app.
-   *
-   * You can add new settings options at any time. Once the settings are saved,
-   * these values will not overwrite the saved values (this can be done manually if desired).
+   * Configurações iniciais do sistema
    */
   return new Settings(storage, {
     telaTutorial: 'WelcomePage',
@@ -35,7 +43,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    ...menuComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,8 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    ...menuComponent
   ],
   providers: [
     Camera,
@@ -62,6 +72,8 @@ export function provideSettings(storage: Storage) {
     AutenticacaoService,
     OrdemServicoService,
     UsuarioService,
+    ClienteService,
+
     // Keep this to enable Ionic's runtime error handling during development
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

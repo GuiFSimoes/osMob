@@ -1,20 +1,19 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { DetalheOSTabPageRoutingModule } from './detalhe-os-tab.router.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { IonicPageModule } from 'ionic-angular';
 
 import { DetalheOSTabPage } from './detalhe-os-tab';
 
 @NgModule({
   imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    DetalheOSTabPageRoutingModule
+    IonicPageModule.forChild(DetalheOSTabPage),
+    TranslateModule.forChild()
   ],
-  declarations: [DetalheOSTabPage]
+  declarations: [
+    DetalheOSTabPage
+  ],
+  exports: [
+    DetalheOSTabPage
+  ]
 })
 export class DetalhesOSTabPageModule {}

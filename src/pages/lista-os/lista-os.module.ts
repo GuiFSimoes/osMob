@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { MenuPage } from './menu';
+import { ListaOSPage } from './lista-os';
 
 @NgModule({
-  declarations: [
-    MenuPage,
-  ],
   imports: [
-    IonicPageModule.forChild(MenuPage),
+    IonicPageModule.forChild(ListaOSPage),
     TranslateModule.forChild()
   ],
+  declarations: [
+    ListaOSPage,
+  ],
   exports: [
-    MenuPage
+    ListaOSPage
   ]
 })
-export class MenuPageModule { }
+export class ListaOSPageModule { }

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title> {{ 'DETALHES_ORDEM_SERVICO_TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="abrirMenuOpcoes($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <div class="border-bottom" padding>
+    <ul class="highlight">
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'ORDEM_NUMERO' | translate }}: </span>
+        <span ion-text color="primary">{{item.AT_COD}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'STATUS' | translate }}: </span>
+        <span ion-text color="primary">{{item.AT_STATUS_D}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'CLIENTE' | translate }}: </span>
+        <span ion-text color="primary">{{cliente.CF_FANTA}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'DT_SOLICITACAO' | translate }}: </span>
+        <span ion-text color="primary">{{item.AT_DATSOL}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'DT_PREVISAO_ATEN' | translate }}: </span>
+        <span ion-text color="primary">{{item.AT_DATPRE}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'CONTATO' | translate }}: </span>
+        <span ion-text color="primary">{{item.CONTATO}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'TELEFONES' | translate }}: </span>
+        <span ion-text color="primary">{{item.TELEFONES}}</span>
+      </li>
+      <li>
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary" class="bold">{{ 'ENDERECO' | translate }}: </span>
+        <span ion-text color="primary">{{item.ENDERECO}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- resumo -->
+  <div class="border-bottom" padding>
+    <span ion-text color="primary" class="bold">{{ 'DESCRICAO_SERVICO' | translate }}</span>
+    <p ion-text>{{item.AT_DES}}</p>
+  </div>
+
+  <!-- detalhes -->
+  <div class="border-bottom" padding>
+    <span ion-text color="primary" class="bold">{{ 'DESCRICAO_SERVICO_DET' | translate }}</span>
+    <p ion-text>{{item.AT_DETALHE}}</p>
+  </div>
+
+
+
+</ion-content>

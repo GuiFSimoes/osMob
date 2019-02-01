@@ -62,13 +62,32 @@
   "CARDS_TITLE": "Social",
 
   "SEARCH_TITLE": "Busca",
-  
+
   "CHECKBOX_APRESENTA_TELA_TUTORIAL": "Não apresentar essa tela na próxima vez",
 
   "DETALHES_ORDEM_SERVICO_TITLE": "Detalhes da OS",
   "ORDEM_NUMERO": "OS #",
   "CLIENTE": "Cliente",
   "LISTA_VAZIA": "Sem ordens a exibir",
-  "ABRIR": "Abrir"
+  "ABRIR": "Abrir",
+  "DT_SOLICITACAO": "Data solicitação",
+  "DT_PREVISAO_ATEN": "Data previsão atendimento",
+  "CONTATO": "Contato",
+  "TELEFONES": "Telefones",
+  "ENDERECO": "Endereço",
+  "DESCRICAO_SERVICO": "Descrição resumida",
+  "DESCRICAO_SERVICO_DET": "Descrição detalhada",
+  "TRANSMITIR": "Transmitir",
+  "RETRANSMITIR": "Retransmitir",
+  "FECHAR_OS": "Fechar OS",
+  "INICIAR_FASE": "Iniciar fase",
+  "FECHAR_FASE": "Fechar fase",
+  "ADD_FOTO": "Adicionar foto",
+  "DELETAR": "Limpar OS",
+  "": "",
+
+  "TAB_OS1_TITLE": "Informações OS",
+  "TAB_OS2_TITLE": "Imagens/Fotos",
+  "TAB_OS3_TITLE": "Execução"
 
 }

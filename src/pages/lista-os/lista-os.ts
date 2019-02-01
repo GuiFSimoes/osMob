@@ -7,16 +7,17 @@ import { OrdemServicoService, UsuarioService } from '../../providers';
 
 @IonicPage()
 @Component({
-  selector: 'page-list-master',
-  templateUrl: 'list-master.html'
+  selector: 'page-lista-os',
+  templateUrl: 'lista-os.html'
 })
-export class ListMasterPage {
+export class ListaOSPage {
 
   filtro: string = '';
   listaItensOS: Array<OrdemServico> = [];
   listaFiltradaOS: Array<OrdemServico> = [];
   usuarioLogado: Colaborador;
 
+  comboPesquisa = false;
   camposFiltro = ['AT_COD', 'AT_DES', 'AT_DATSOL', 'AT_STATUS_D'];
 
   constructor(
@@ -37,8 +38,6 @@ export class ListMasterPage {
   carregaLista() {
     this.osService.query().then(retorno => {
       this.listaItensOS = this.listaFiltradaOS = retorno.filter(x => x.VD_COD === this.usuarioLogado.VD_COD);
-      console.log('lista (comp): ', this.listaItensOS);
-      console.log('lista (fil): ', this.listaFiltradaOS);
     });
   }
 
@@ -50,10 +49,8 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   abrirItem(item: any) {
-    console.log('abrir: ', item);
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });
+    // console.log('abrir: ', item);
+    this.navCtrl.push('DetalheOSTabPage', { item: item });
   }
 
   filtrarLista() {

@@ -16,7 +16,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   pages: any[] = [
-    { title: 'Lista OS', icon: 'list-box', component: 'ListMasterPage' },
+    { title: 'Lista OS', icon: 'list-box', component: 'ListaOSPage' },
     { title: 'Sair', icon: 'log-out', component: 'sair' },
     // { title: 'Teste', icon: 'construct', component: 'SearchPage' },
 
@@ -63,6 +63,9 @@ export class MyApp {
     this.settings.load()
       .then(l => {
         this.configuracoes = l;
+        // console.log('conf lido: ', this.configuracoes['pularTutarial']);
+        // Debug
+        this.configuracoes['pularTutarial'] = false;
         if (this.configuracoes['pularTutarial'] === undefined || this.configuracoes['pularTutarial'] === null) {
           this.rootPage = 'TutorialPage';
         } else if (this.configuracoes['pularTutarial'] === true) {

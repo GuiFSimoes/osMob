@@ -29,7 +29,7 @@ export class WelcomePage {
       .then(() => {
         // console.log('welcome: ', this.user._user);
         if (this.user._user !== undefined && this.user._user !== null) {
-          this.navCtrl.setRoot('ListMasterPage');
+          this.navCtrl.setRoot('ListaOSPage');
         }
       });
   }

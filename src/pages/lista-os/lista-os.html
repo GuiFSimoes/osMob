@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="comboPesquisa = !comboPesquisa">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="carregaLista()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- input de filtro -->
+  <div *ngIf="comboPesquisa" padding>
+    <ion-searchbar [(ngModel)]="filtro" (ionInput)="filtrarLista()"></ion-searchbar>
+  </div>
+
+  <ion-list *ngIf="listaFiltradaOS.length > 0">
+    <ion-item-sliding *ngFor="let item of listaFiltradaOS">
+
+      <!-- <button ion-item (click)="abrirItem(item)"> -->
+      <ion-grid ion-item style="background-color: chartreuse">
+        <ion-row class="full-width">
+          <ion-col style="background-color: blueviolet" size="2" text-center>
+            <div>
+              <label for="ordem">{{ 'ORDEM_NUMERO' | translate }}</label>
+              <h2>{{item.AT_COD}}</h2>
+            </div>
+          </ion-col>
+          <ion-col size="10">
+            <ion-row>
+              <ion-col>
+                {{item.AT_DES}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                {{item.AT_DATSOL}}
+              </ion-col>
+              <ion-col size="6" class="pull-right" style="background-color: blueviolet">
+                {{item.AT_STATUS_D}}
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- </button> -->
+
+      <ion-item-options>
+        <button ion-button color="success" (click)="abrirItem(item)">
+          <ion-icon name="open"></ion-icon>
+          {{ 'ABRIR' | translate }}
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row padding *ngIf="listaFiltradaOS.length === 0">
+      <ion-col>
+        <span ion-text color="primary">{{'LISTA_VAZIA' | translate}}</span>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
+import { Settings } from '../../providers';
 
 export interface Slide {
   title: string;
@@ -19,7 +20,13 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
+  constructor(
+    public navCtrl: NavController,
+    public menu: MenuController,
+    translate: TranslateService,
+    public platform: Platform,
+    private setings: Settings
+  ) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
@@ -29,7 +36,7 @@ export class TutorialPage {
       "TUTORIAL_SLIDE3_DESCRIPTION",
     ]).subscribe(
       (values) => {
-        console.log('Loaded values', values);
+        // console.log('Loaded values', values);
         this.slides = [
           {
             title: values.TUTORIAL_SLIDE1_TITLE,
@@ -55,6 +62,10 @@ export class TutorialPage {
       animate: true,
       direction: 'forward'
     });
+  }
+
+  alterarValor(event) {
+    this.setings.setValue('pularTutarial', event.value);
   }
 
   onSlideChangeStart(slider) {

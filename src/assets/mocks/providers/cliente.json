@@ -1,0 +1,26 @@
+[{
+  "CF_COD": 1,
+  "CF_RSOCIAL": "EMPRESA EXEMPLO A",
+  "CF_FANTA": "EMPRESA EXEMPLO A",
+  "CF_EMAIL": "debone@dbmgroup.com.br"
+}, {
+  "CF_COD": 2,
+  "CF_RSOCIAL": "EMPRESA EXEMPLO B",
+  "CF_FANTA": "EMPRESA EXEMPLO B",
+  "CF_EMAIL": "debone@dbmgroup.com.br"
+}, {
+  "CF_COD": 3,
+  "CF_RSOCIAL": "EMPRESA EXEMPLO C",
+  "CF_FANTA": "EMPRESA EXEMPLO C",
+  "CF_EMAIL": "debone@dbmgroup.com.br"
+}, {
+  "CF_COD": 4,
+  "CF_RSOCIAL": "EMPRESA EXEMPLO D",
+  "CF_FANTA": "EMPRESA EXEMPLO D",
+  "CF_EMAIL": "debone@dbmgroup.com.br"
+}, {
+  "CF_COD": 5,
+  "CF_RSOCIAL": "EMPRESA EXEMPLO E",
+  "CF_FANTA": "EMPRESA EXEMPLO E",
+  "CF_EMAIL": "debone@dbmgroup.com.br"
+}]

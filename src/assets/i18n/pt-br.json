@@ -6,7 +6,6 @@
   "USERNAME": "Nome de Usuário",
   "PASSWORD": "Senha",
   "LOGIN": "Entrar",
-  "SIGNUP": "Cadastre-se",
 
   "TAB1_TITLE": "Itens",
   "TAB2_TITLE": "Busca",
@@ -17,18 +16,18 @@
   "TUTORIAL_SKIP_BUTTON": "Pular",
   "TUTORIAL_CONTINUE_BUTTON": "Continuar",
 
-  "TUTORIAL_SLIDE1_TITLE": "Bem-vindo ao Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "O <b>Ionic Super Starter</b> é um starter para Ionic completo, com diversos componentes e páginas prontas para ser utilizado como guia de melhores práticas.",
+  "TUTORIAL_SLIDE1_TITLE": "Bem-vindo ao Spalla OS App",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "O <b>SPALLA OS App</b> é o seu aplicativo de controle de ordens de serviço, com diversos componentes e bem intuitivo para o acompanhamento de suas tarefas diárias.",
 
-  "TUTORIAL_SLIDE2_TITLE": "Como utilizar o Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Combine os tipos de páginas que você quer e remova aquelas que não precisa. No starter existem muitos casos de uso comuns de layouts e páginas como login, cadastro, abas e de tutorial.",
+  "TUTORIAL_SLIDE2_TITLE": "Como utilizar o Spalla OS App",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Ao logar-se o sistema automaticamente irá carregar suas tarefas para o dispositivo, e você poderá trabalhar mesmo sem uma conexão de internet disponivel.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Iniciando o projeto",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Precisa de ajuda? Dê uma olhada no README do Super Starter para um tutorial completo",
+  "TUTORIAL_SLIDE3_TITLE": "Transmitindo os dados",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Ao final de suas atividades, tranfira os dados de sua execução para a central assim que estiver com uma conexão de internet.",
 
   "TUTORIAL_SLIDE4_TITLE": "Pronto para Usar?",
 
-  "WELCOME_INTRO": "O ponto de partida para seu próximo app feito no Ionic",
+  "WELCOME_INTRO": "Tenha o controle e execução de suas tarefas diárias na palma de sua mão",
 
   "SETTINGS_TITLE": "Configurações",
   "SETTINGS_OPTION1": "Opção 1",
@@ -44,12 +43,11 @@
 
   "LOGIN_TITLE": "Entrar",
   "LOGIN_ERROR": "Não foi possível entrar na sua conta. Verifique seus dados e tente novamente.",
+  "LOGIN_SUCESSO": "Bem vindo ao Spalla OS App",
   "LOGIN_BUTTON": "Entrar",
-  "SIGNUP_TITLE": "Cadastre-se",
   "SIGNUP_ERROR": "Não foi possível criar sua conta. Verifique seus dados e tente novamente.",
-  "SIGNUP_BUTTON": "Cadastre-se",
 
-  "LIST_MASTER_TITLE": "Itens",
+  "LIST_MASTER_TITLE": "Lista com suas Ordens de Serviço",
 
   "ITEM_CREATE_TITLE": "Novo Item",
   "ITEM_CREATE_CHOOSE_IMAGE": "Adicionar Imagem",
@@ -64,5 +62,13 @@
   "CARDS_TITLE": "Social",
 
   "SEARCH_TITLE": "Busca",
-  "SEARCH_PLACEHOLDER": "Procure um item da lista, ex: \"Donald Duck\""
+  
+  "CHECKBOX_APRESENTA_TELA_TUTORIAL": "Não apresentar essa tela na próxima vez",
+
+  "DETALHES_ORDEM_SERVICO_TITLE": "Detalhes da OS",
+  "ORDEM_NUMERO": "OS #",
+  "CLIENTE": "Cliente",
+  "LISTA_VAZIA": "Sem ordens a exibir",
+  "ABRIR": "Abrir"
+
 }

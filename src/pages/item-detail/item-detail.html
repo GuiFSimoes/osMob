@@ -1,13 +1,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title> {{ 'DETALHES_ORDEM_SERVICO_TITLE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+
+  <div class="border-bottom" padding>
+    <span ion-text color="dark" class="bold">Detalhes</span>
+    <ul class="highlight">
+      <li *ngFor="let highlight of trip.highlights">
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text color="primary">{{ highlight }}</span>
+      </li>
+    </ul>
+  </div>
+
   <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
   </div>
 
@@ -15,4 +26,6 @@
     <h2>{{item.name}}</h2>
     <p>{{item.about}}</p>
   </div>
+
+  
 </ion-content>

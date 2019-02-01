@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController } from 'ionic-angular';
+import { UsuarioService } from '../../providers';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -14,13 +15,37 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(
+    public menu: MenuController,
+    public user: UsuarioService,
+    public navCtrl: NavController
+  ) {
+    // Verifica se exsite um usuário logado na aplicação
+    this.verificarLogado();
+  }
+
+  private verificarLogado() {
+    this.user.getUserStorage()
+      .then(() => {
+        // console.log('welcome: ', this.user._user);
+        if (this.user._user !== undefined && this.user._user !== null) {
+          this.navCtrl.setRoot('ListMasterPage');
+        }
+      });
+  }
 
   login() {
     this.navCtrl.push('LoginPage');
   }
 
-  signup() {
-    this.navCtrl.push('SignupPage');
+  ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
   }
+
+  ionViewWillLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+  }
+
 }

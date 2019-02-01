@@ -1,0 +1,18 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Spalla OS App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item class="text-1x" *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-left name="{{p.icon}}" color="primary"></ion-icon>
+        <span ion-text color="primary">{{p.title}}</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

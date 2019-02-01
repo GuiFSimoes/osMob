@@ -1,0 +1,13 @@
+[{
+  "ATR_COD": 1,
+  "ATR_DES": "Viagem",
+  "ATR_TIPO": "1"
+}, {
+  "ATR_COD": 2,
+  "ATR_DES": "Execução",
+  "ATR_TIPO": "0"
+}, {
+  "ATR_COD": 3,
+  "ATR_DES": "Parada",
+  "ATR_TIPO": "0"
+}]

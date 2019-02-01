@@ -1,5 +1,7 @@
 {
   "name": "SpallaOSMob",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

@@ -17,6 +17,10 @@ export class OrdemServicoService {
     return this.api.get('ordemServicoDetalhe.json', params);
   }
 
+  queryFotos(params?: any) {
+    return this.api.get('ordemServicoFoto.json', params);
+  }
+
   addOrdem(item: OrdemServico) {
     return this.api.put('ordemServico.json', item);
   }

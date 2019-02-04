@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -22,6 +22,7 @@ export class DetalheOSTabPage {
 
   constructor(
     public navCtrl: NavController,
+    public viewCtrl: ViewController,
     private navParams: NavParams,
     public translateService: TranslateService
   ) {

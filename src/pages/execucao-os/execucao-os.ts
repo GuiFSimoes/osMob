@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, PopoverController } from 'ionic-angular';
 
 import { OrdemServicoService, UsuarioService, ClienteService } from '../../providers';
 
@@ -21,15 +21,19 @@ export class ExecucaoOSPage {
   usuarioLogado: Colaborador;
   item: OrdemServico = new OrdemServico();
   cliente: Cliente = new Cliente();
+  viewCtrl: ViewController;
 
   detalhesItem: Array<OrdemServicoDetalhe> = [];
 
   constructor(
     public navCtrl: NavController,
+    public popCtrl: PopoverController,
     private navParams: NavParams,
     private userService: UsuarioService,
     private osService: OrdemServicoService
-  ) { }
+  ) {
+    this.viewCtrl = this.navParams.get('viewCtrl');
+  }
 
   ionViewDidLoad() {
     this.item = this.navParams.get('item');
@@ -44,6 +48,18 @@ export class ExecucaoOSPage {
         this.detalhesItem = result.filter(x => x.AT_COD === codigo_os);
         // console.log('det: ', this.detalhesItem);
       });
+  }
+
+  voltarLista() {
+    this.viewCtrl.dismiss();
+  }
+
+  async abrirMenuOpcoes(eventClick: any) {
+    const popover = await this.popCtrl.create(PopOverMenuOSComponent, { status: this.item.AT_STATUS, origem: 'execucao' });
+    return await popover.present({
+      ev: eventClick,
+      animate: true
+    });
   }
 
 }

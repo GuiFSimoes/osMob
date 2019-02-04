@@ -1,6 +1,16 @@
 <ion-header>
   <ion-navbar>
+    <!-- back button -->
+    <ion-buttons left>
+      <button ion-button icon-only (click)="voltarLista()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <!-- Título -->
     <ion-title> {{ 'DETALHES_ORDEM_SERVICO_TITLE' | translate }}</ion-title>
+
+    <!-- Menu -->
     <ion-buttons end>
       <button ion-button icon-only (click)="abrirMenuOpcoes($event)">
         <ion-icon name="more"></ion-icon>

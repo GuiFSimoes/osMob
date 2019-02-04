@@ -84,7 +84,8 @@
   "FECHAR_FASE": "Fechar fase",
   "ADD_FOTO": "Adicionar foto",
   "DELETAR": "Limpar OS",
-  "": "",
+  "LISTA_IMAGENS_TITLE": "Lista de imagens da OS",
+  "EXECUCAO_OS_TITLE": "Execução da OS",
 
   "TAB_OS1_TITLE": "Informações OS",
   "TAB_OS2_TITLE": "Imagens/Fotos",

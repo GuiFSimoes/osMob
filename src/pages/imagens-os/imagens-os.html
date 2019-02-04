@@ -1,9 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
+  <ion-navbar>
+    <!-- back button -->
+    <ion-buttons left>
+      <button ion-button icon-only (click)="voltarLista()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{ 'LISTA_IMAGENS_TITLE' | translate }}</ion-title>
+
+    <!-- Menu -->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="abrirMenuOpcoes($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of listaFotos">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <img [src]="item.ATR_FOTO" />
+        </ion-avatar>
+        <h2>{{item.AT_DATA}}</h2>
+        <p>{{item.AT_COMENTARIO}}</p>
+        <!-- <ion-note item-end>{{item.AT_COMENTARIO}}</ion-note> -->
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+</ion-content>

@@ -61,6 +61,7 @@ export class PopOverMenuOSComponent {
   }
 
   filtrarLista() {
+    console.log('Filtros: (status,origem)', this.stausOS, this.paginaOrigem);
     this.lista = this.listButtons.filter(x => x.origem.match(this.paginaOrigem) && x.status.match(this.stausOS));
   }
 

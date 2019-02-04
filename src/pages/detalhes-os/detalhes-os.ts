@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, PopoverController, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, PopoverController, NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { OrdemServicoService, UsuarioService, ClienteService } from '../../providers';
 
@@ -20,6 +20,7 @@ export class DetalhesOSPage {
   usuarioLogado: Colaborador;
   item: OrdemServico = new OrdemServico();
   cliente: Cliente = new Cliente();
+  viewCtrl: ViewController;
 
   constructor(
     public navCtrl: NavController,
@@ -28,7 +29,9 @@ export class DetalhesOSPage {
     private userService: UsuarioService,
     private clienteService: ClienteService,
     // private osService: OrdemServicoService
-  ) { }
+  ) {
+    this.viewCtrl = this.navParams.get('viewCtrl');
+  }
 
   ionViewDidLoad() {
     this.item = this.navParams.get('item');
@@ -58,6 +61,10 @@ export class DetalhesOSPage {
       ev: eventClick,
       animate: true
     });
+  }
+
+  voltarLista() {
+    this.viewCtrl.dismiss();
   }
 
 }

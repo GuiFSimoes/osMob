@@ -8,10 +8,6 @@ import { TranslateService } from '@ngx-translate/core';
     <ion-list>
       <ion-list-header>Ações</ion-list-header>
       <button ion-item *ngFor="let item of lista" (click)="acao(item.click)">{{item.label}}</button>
-      <button ion-item (click)="acao('')">{{ 'INICIAR_FASE' | translate }}</button>
-      <button ion-item (click)="acao('')">{{ 'FECHAR_FASE' | translate }}</button>
-      <button ion-item (click)="acao('fechar_os')">{{ 'FECHAR_OS' | translate }}</button>
-      <button ion-item (click)="acao('adicionar')">{{ 'ADD_FOTO' | translate }}</button>
     </ion-list>`
 })
 export class PopOverMenuOSComponent {
@@ -27,16 +23,7 @@ export class PopOverMenuOSComponent {
   deletarLabel = '';
   retransmitirLabel = '';
 
-  listButtons: any = [
-    { click: 'transmitir', label: this.transmitirLabel, origem: 'detalhes', status: '3' },
-    { click: 'retransmitir', label: this.retransmitirLabel, origem: 'detalhes', status: '4' },
-    { click: 'iniciar_fase', label: this.iniciarLabel, origem: 'execucao', status: '1|2' },
-    { click: 'fechar_fase', label: this.fecharLabel, origem: 'execucao', status: '1|2' },
-    { click: 'fechar_os', label: this.fecharOSLabel, origem: 'execucao|detalhes', status: '2' },
-    { click: 'adicionar_foto', label: this.addFotoLabel, origem: 'imagem', status: '1|2' },
-    { click: 'deletar', label: this.deletarLabel, origem: 'execucao', status: '4|5' },
-  ];
-
+  listButtons: any;
   lista: any = [];
 
   constructor(
@@ -55,13 +42,22 @@ export class PopOverMenuOSComponent {
       this.fecharOSLabel = values['FECHAR_OS'];
       this.addFotoLabel = values['ADD_FOTO'];
       this.deletarLabel = values['DELETAR'];
+
+      this.listButtons = [
+        { click: 'transmitir', label: this.transmitirLabel, origem: 'detalhes', status: '3' },
+        { click: 'retransmitir', label: this.retransmitirLabel, origem: 'detalhes', status: '4' },
+        { click: 'iniciar_fase', label: this.iniciarLabel, origem: 'execucao', status: '1|2' },
+        { click: 'fechar_fase', label: this.fecharLabel, origem: 'execucao', status: '1|2' },
+        { click: 'fechar_os', label: this.fecharOSLabel, origem: 'execucao|detalhes', status: '2' },
+        { click: 'adicionar_foto', label: this.addFotoLabel, origem: 'imagem', status: '1|2' },
+        { click: 'deletar', label: this.deletarLabel, origem: 'execucao', status: '4|5' },
+      ];
+      this.filtrarLista();
     });
 
-    this.filtrarLista();
   }
 
   filtrarLista() {
-    console.log('Filtros: (status,origem)', this.stausOS, this.paginaOrigem);
     this.lista = this.listButtons.filter(x => x.origem.match(this.paginaOrigem) && x.status.match(this.stausOS));
   }
 

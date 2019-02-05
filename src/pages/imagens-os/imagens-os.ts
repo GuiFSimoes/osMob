@@ -59,10 +59,17 @@ export class ImagensOSPage {
 
   async abrirMenuOpcoes(eventClick: any) {
     const popover = await this.popCtrl.create(PopOverMenuOSComponent, { status: this.item.AT_STATUS, origem: 'imagem' });
+    popover.onDidDismiss(x => this.retornoMenu(x));
     return await popover.present({
       ev: eventClick,
       animate: true
     });
+  }
+
+  retornoMenu(acao) {
+    if (acao === 'adicionar_foto') {
+      this.addItem();
+    }
   }
 
 }

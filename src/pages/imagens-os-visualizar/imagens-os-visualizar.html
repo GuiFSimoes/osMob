@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- back button -->
+    <!-- <ion-buttons left>
+      <button ion-button icon-only (click)="voltarLista()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-title>{{ 'FOTO_ORDEM_SERVICO' | translate }}: {{item.AT_COD}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.ATR_FOTO + ')'">
+  </div>
+
+  <div class="item-detail" padding>
+    <h2>{{item.AT_DATA}}</h2>
+    <p>{{item.AT_COMENTARIO}}</p>
+  </div>
+</ion-content>

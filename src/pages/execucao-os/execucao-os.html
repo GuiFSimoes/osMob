@@ -22,4 +22,35 @@
 
 <ion-content>
 
+  <ion-list *ngIf="detalhesItem.length > 0">
+
+      <div *ngFor="let item of detalhesItem">
+        
+        <ion-item class="full-width" [ngClass]="{'fundoDes': item.ATR_COD == 1, 'fundoExe': item.ATR_COD == 2, 'fundoPar': item.ATR_COD == 3}">
+          <ion-row>
+            <ion-col size="6">
+              <p for="tipo" class="bold">Etapa: {{item.ATR_FASE}}</p>
+              <p for="des" *ngIf="item.ATR_COD == 1 && item.ATR_DISTANCIA != 0">Delocamento: {{item.ATR_DISTANCIA}}
+                metros</p>
+              <p for="tempo" *ngIf="item.ATR_TEMPO != ''">Tempo: {{item.ATR_TEMPO}}</p>
+            </ion-col>
+            <ion-col size="6">
+              <p for="ini">Início: {{item.AT_DATINI}}</p>
+              <p for="loc_ini" *ngIf="item.AT_LOCAL_INI != ''">Local início: {{item.AT_LOCAL_INI}}</p>
+              <p for="fim" *ngIf="item.AT_DATFIM != ''">Fim: {{item.AT_DATFIM}}</p>
+              <p for="loc_fim" *ngIf="item.AT_LOCAL_FIM != ''">Local fim: {{item.AT_LOCAL_FIM}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width" *ngIf="item.AT_COMENTARIO != ''">
+            <ion-col>
+              <p>Comentário: <br>{{item.AT_COMENTARIO}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+
+      </div>
+
+  </ion-list>
+
+
 </ion-content>

@@ -53,6 +53,7 @@
   "ITEM_CREATE_CHOOSE_IMAGE": "Adicionar Imagem",
 
   "ITEM_NAME_PLACEHOLDER": "Nome",
+  "ITEM_OBSERVACOES_PLACEHOLDER": "Observações",
   "ITEM_ABOUT_PLACEHOLDER": "Sobre",
 
   "DONE_BUTTON": "Pronto",
@@ -89,6 +90,7 @@
 
   "TAB_OS1_TITLE": "Informações OS",
   "TAB_OS2_TITLE": "Imagens/Fotos",
-  "TAB_OS3_TITLE": "Execução"
+  "TAB_OS3_TITLE": "Execução",
+  "FOTO_ORDEM_SERVICO": "Foto OS"
 
 }

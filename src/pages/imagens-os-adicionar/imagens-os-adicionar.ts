@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { IonicPage, NavController, ViewController, DateTime, ActionSheetController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,13 +18,15 @@ export class ImagensOSAdicionarPage {
   constructor(
     public navCtrl: NavController,
     public viewCtrl: ViewController,
-    formBuilder: FormBuilder,
+    private actionSheetController: ActionSheetController,
+    private formBuilder: FormBuilder,
     public camera: Camera
   ) {
     this.form = formBuilder.group({
-      profilePic: [''],
-      name: ['', Validators.required],
-      about: ['']
+      ATR_FOTO: [''],
+      AT_COMENTARIO: ['', Validators.required],
+      AT_DATA: [new Date().toLocaleString('pt-BR')],
+      // AT_LOCAL: [''] // pegar coordenadaas
     });
 
     // Watch the form for changes, and
@@ -38,19 +40,17 @@ export class ImagensOSAdicionarPage {
   }
 
   getPicture() {
-    if (Camera['installed']()) {
-      this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth: 96,
-        targetHeight: 96
-      }).then((data) => {
-        this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
+    const camOpt: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG
+    };
+    this.camera.getPicture(camOpt)
+      .then((data) => {
+        this.form.patchValue({ 'ATR_FOTO': 'data:image/jpg;base64,' + data });
       }, (err) => {
-        alert('Unable to take photo');
+        // alert('Não é possivel pegar a foto');
       })
-    } else {
-      this.fileInput.nativeElement.click();
-    }
   }
 
   processWebImage(event) {
@@ -58,14 +58,13 @@ export class ImagensOSAdicionarPage {
     reader.onload = (readerEvent) => {
 
       let imageData = (readerEvent.target as any).result;
-      this.form.patchValue({ 'profilePic': imageData });
+      this.form.patchValue({ 'ATR_FOTO': imageData });
     };
-
     reader.readAsDataURL(event.target.files[0]);
   }
 
   getProfileImageStyle() {
-    return 'url(' + this.form.controls['profilePic'].value + ')'
+    return 'url(' + this.form.controls['ATR_FOTO'].value + ')';
   }
 
   /**
@@ -83,4 +82,25 @@ export class ImagensOSAdicionarPage {
     if (!this.form.valid) { return; }
     this.viewCtrl.dismiss(this.form.value);
   }
+
+  async abrirActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      buttons: [{
+        text: 'Camera',
+        icon: 'camera',
+        handler: () => this.getPicture()
+      }, {
+        text: 'Galeria',
+        icon: 'photos',
+        handler: () => this.fileInput.nativeElement.click()
+      }, {
+        text: 'Cancelar',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => console.log('Cancel clicked')
+      }]
+    });
+    await actionSheet.present();
+  }
+
 }

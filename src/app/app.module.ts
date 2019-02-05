@@ -1,7 +1,9 @@
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Camera } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+// import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 // import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
@@ -66,6 +68,7 @@ export function provideSettings(storage: Storage) {
   ],
   providers: [
     Camera,
+    Geolocation,
     SplashScreen,
     StatusBar,
     ApiHttpService,

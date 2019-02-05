@@ -28,24 +28,23 @@ export class ImagensOSPage {
   }
 
   ionViewDidLoad() {
-    console.log('load...');
     this.item = this.navParams.get('item');
-
-    console.log('item lido em imagens', this.item);
     this.osService.queryFotos()
       .then(itens => {
-        this.listaFotos = itens.filter(x => x.AT_COD === this.item.AT_COD);
+        this.listaFotos = itens.filter(x => x.AT_COD.toString() === this.item.AT_COD.toString());
       });
   }
 
   addItem() {
     const addModal = this.modalCtrl.create('ImagensOSAdicionarPage');
-    addModal.onDidDismiss((itemRetorno: FotoOrdemServico)  => {
+    addModal.onDidDismiss((itemRetorno: FotoOrdemServico) => {
       if (itemRetorno) {
+        itemRetorno.FL_COD = this.item.FL_COD;
         itemRetorno.AT_COD = this.item.AT_COD;
+        itemRetorno.AT_ITM = this.listaFotos.length + 1;
         this.listaFotos.push(itemRetorno);
       }
-    })
+    });
     addModal.present();
   }
 
@@ -57,6 +56,11 @@ export class ImagensOSPage {
     this.viewCtrl.dismiss();
   }
 
+  openItem(foto: FotoOrdemServico) {
+    const addModal = this.modalCtrl.create('ImagensOSVisualizarPage', { item: foto });
+    addModal.present();
+  }
+
   async abrirMenuOpcoes(eventClick: any) {
     const popover = await this.popCtrl.create(PopOverMenuOSComponent, { status: this.item.AT_STATUS, origem: 'imagem' });
     popover.onDidDismiss(x => this.retornoMenu(x));
@@ -66,8 +70,8 @@ export class ImagensOSPage {
     });
   }
 
-  retornoMenu(acao) {
-    if (acao === 'adicionar_foto') {
+  retornoMenu(acaoClick) {
+    if (acaoClick === 'adicionar_foto') {
       this.addItem();
     }
   }

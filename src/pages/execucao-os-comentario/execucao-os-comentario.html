@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ 'ADD_FOTO' | translate }}</ion-title>
+    <ion-title>Fechando etapa: {{item?.ATR_FASE | uppercase}}</ion-title>
     <ion-buttons start>
       <button ion-button (click)="cancel()">
         <span color="primary" showWhen="ios">
@@ -25,20 +25,18 @@
 
 <ion-content>
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
-    <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
-    <div class="profile-image-wrapper" (click)="abrirActionSheet()">
-      <div class="profile-image-placeholder" *ngIf="!this.form.controls.ATR_FOTO.value">
-        <ion-icon name="add"></ion-icon>
-        <div>
-          {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
-        </div>
-      </div>
-      <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.ATR_FOTO.value"></div>
-    </div>
+
     <ion-list>
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_OBSERVACOES_PLACEHOLDER' | translate }}" formControlName="AT_COMENTARIO"></ion-input>
+        <ion-textarea placeholder="Comentários" formControlName="comentario"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        Tempo de execução: <ion-input type="text" formControlName="tempo_decorrido" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        Data: <ion-input type="text" formControlName="data_fim" readonly></ion-input>
       </ion-item>
     </ion-list>
+
   </form>
 </ion-content>

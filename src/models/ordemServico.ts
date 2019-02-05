@@ -1,4 +1,4 @@
-import { DateTime } from "ionic-angular";
+// import { DateTime } from "ionic-angular";
 
 // Classe de itens da Ordem de Serviço
 export class OrdemServico {
@@ -7,11 +7,11 @@ export class OrdemServico {
   FL_COD: number;       // código da empresa ou filial emitente da OS
   CF_COD: number;       // cógigo da empresa cliente da OS
   VD_COD: number;       // código do técnico/colaborador atendente
-  AT_DATSOL: DateTime;  // data de abertura da solicitação
-  AT_DATPRE: DateTime;  // data de previsão de atendimento da solicitação
+  AT_DATSOL: string;  // data de abertura da solicitação
+  AT_DATPRE: string;  // data de previsão de atendimento da solicitação
   CONTATO: string;      // nome do contato
   TELEFONES: string;    // telefones de contato
-  ENDEREÇO: string;     // endereço do atendimento da OS
+  ENDERECO: string;     // endereço do atendimento da OS
   AT_DES: string;       // descrição resumida da OS
   AT_DETALHE: string;   // detalhes/descrição completa do serviço
   AT_STATUS: string;    // status da OS

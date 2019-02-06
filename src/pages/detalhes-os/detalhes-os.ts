@@ -72,6 +72,12 @@ export class DetalhesOSPage {
     if (acaoClick === 'fechar_os') {
       alert('Ordem de serviço fechada com sucesso!');
       this.voltarLista();
+    } else if (acaoClick === 'transmitir') {
+      alert('A ordem de serviço foi adicionada na fila para transmissão!');
+      this.voltarLista();
+    } else if (acaoClick === 'retransmitir') {
+      alert('A ordem de serviço foi adicionada na fila para ser retransmitida!');
+      this.voltarLista();
     }
   }
 

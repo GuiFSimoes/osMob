@@ -41,18 +41,17 @@ export class ExecucaoOSComentarioPage {
     this.item = this.navParams.get('item');
 
     // calcula o tempo decorrido!
-    this.item.AT_DATFIM = new Date().toLocaleString('pt-BR');
-    const tempo = this.calculaDiferenca(this.item.AT_DATINI, this.item.AT_DATFIM);
+    // this.item.AT_DATFIM = new Date().toLocaleString('pt-BR');
+    const tempo = this.calculaDiferenca(this.item.AT_DATINI, new Date().toLocaleString('pt-BR'));
     this.form.patchValue({ 'tempo_decorrido': tempo });
     this.form.patchValue({ 'data_fim': this.item.AT_DATFIM });
-
-
+    this.pegaCoordenadaAtual();
   }
 
   pegaCoordenadaAtual() {
     this.geoloc.getCurrentPosition().then((resp) => {
       this.form.patchValue({ 'coordenadas': resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString() });
-      console.log('coordenadas: ', resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString());
+      // console.log('coordenadas: ', resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString());
       // resp.coords.latitude
       // resp.coords.longitude
      }).catch((error) => {
@@ -64,11 +63,10 @@ export class ExecucaoOSComentarioPage {
     const _MS_PER_DAY = 1000 * 60 * 60 * 24;
     const ini = new Date(this.convertData(tempo_ini)).valueOf();
     const fim = new Date(this.convertData(tempo_fim)).valueOf();
-    const diasCompletos = (fim.valueOf() - ini.valueOf()) / _MS_PER_DAY;
+    const diasCompletos = (fim - ini) / _MS_PER_DAY;
     const dias = Math.floor(diasCompletos);
     const horas = Math.floor((diasCompletos - dias) * 24);
     const minutos = Math.floor((((diasCompletos - dias) * 24) - horas) * 60);
-    // console.log('dif: ', diferenca_dias);
     let retorno = dias != 0 ? dias + ' dia(s) ' : '';
     retorno += horas != 0 ? horas + ' hora(s) ' : '';
     retorno += minutos != 0 ? minutos + ' minuto(s)' : '';
@@ -84,7 +82,7 @@ export class ExecucaoOSComentarioPage {
    * The user cancelled, so we dismiss without sending data back.
    */
   cancel() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(null);
   }
 
   /**

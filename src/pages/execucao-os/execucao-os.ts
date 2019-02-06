@@ -72,6 +72,7 @@ export class ExecucaoOSPage {
       this.abrirActionSheet();
     } else if (acaoClick === 'fechar_fase') {
       const itemFechar = this.detalhesItem.find(x => x.AT_DATFIM === '');
+      console.log('Fechar item: ', itemFechar);
       if (itemFechar) {
         this.fecharFase(itemFechar);
       } else {
@@ -130,15 +131,15 @@ export class ExecucaoOSPage {
       novoItem.ATR_COD = 3;
       novoItem.ATR_FASE = 'Parada';
     }
-    // this.pegaCoordenadaAtual(novoItem);
+    this.pegaCoordenadaAtual(novoItem);
     this.detalhesItem.push(novoItem);
   }
 
-  pegaCoordenadaAtual(item: OrdemServicoDetalhe) {
-    this.geoloc.getCurrentPosition().then((resp) => {
+  async pegaCoordenadaAtual(item: OrdemServicoDetalhe) {
+    await this.geoloc.getCurrentPosition().then((resp) => {
       // this.form.patchValue({ 'coordenadas': resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString() });
       item.AT_LOCAL_INI = resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString();
-      console.log('coordenadas: ', resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString());
+      // console.log('coordenadas: ', resp.coords.latitude.toString() + '|' + resp.coords.longitude.toString());
       // resp.coords.latitude
       // resp.coords.longitude
      }).catch((error) => {
@@ -148,8 +149,8 @@ export class ExecucaoOSPage {
 
   fecharFase(itemFechar: OrdemServicoDetalhe) {
     const comentarioModal = this.modalCtrl.create('ExecucaoOSComentarioPage', { item: itemFechar });
-    comentarioModal.onDidDismiss((itemRetorno) => {
-      if (itemRetorno) {
+    comentarioModal.onDidDismiss(itemRetorno => {
+      if (itemRetorno !== null) {
         itemFechar.AT_DATFIM = itemRetorno.data_fim;
         itemFechar.AT_COMENTARIO = itemRetorno.comentario;
         itemFechar.ATR_TEMPO = itemRetorno.tempo_decorrido;
